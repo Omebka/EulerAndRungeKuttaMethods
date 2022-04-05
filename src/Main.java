@@ -1,7 +1,6 @@
 public class Main {
-    public static final String FUNCTION = "cos(1.5x + y) + 1.5(x - y)";
-    public static final int X0 = 0;
-    public static final int Y0 = 0;
+    public static final double X0 = 1.7;
+    public static final double Y0 = 5.3;
     public static final double H = 0.1;
     public static final int ARRAY_SIZE = 11;
     public static final int DIGITS_AFTER_COMMA = 4;
@@ -59,9 +58,9 @@ public class Main {
             yRungeKutta[i] = round(yRungeKutta[i - 1] + dy, DIGITS_AFTER_COMMA);
         }
 
-        System.out.println("\tМетод Эйлера\tМетод Эйлера с уточнением\tМетод Рунге-Кутта");
+        System.out.println("\tМетод Эйлера\t|\tМетод Эйлера с уточнением\t|\tМетод Рунге-Кутта");
         for (int i = 0; i < x.length; i++) {
-            System.out.println("x[" + i + "] = " + x[i] + "; y[" + i + "] = " + yEulers[i] + ", " + yEulersModified[i] + ", " + yRungeKutta[i]);
+            System.out.println("x[" + i + "] = " + x[i] + "; y[" + i + "] = " + yEulers[i] + "\t|\t" + yEulersModified[i] + "\t|\t" + yRungeKutta[i]);
         }
     }
 
@@ -70,6 +69,6 @@ public class Main {
     }
 
     public static double functionValue(double x, double y) {
-        return Math.cos(1.5 * x + y) + 1.5 * (x - y);
+        return x + Math.sin(y / Math.PI);
     }
 }
